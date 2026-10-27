@@ -29,3 +29,5 @@ y no por el puntaje publico mas alto. Detalles en `RESULTADOS.md`.
    (`numero_de_cliente`, `prob` y `prob_1..prob_k`) y los CSV de `kaggle/`.
 2. Por semilla: `analisis/seeds9900.R`. Para el blend: `analisis/blend.R` (promedia las columnas `prob_i` de 9900 y 9901 y toma los clientes con mayor promedio como `Predicted = 1`; el envio final es el corte 10500).
 3. Los scripts de `analisis/` tienen rutas de nuestra VM (`/home/ds/buckets/b1/exp/...`); ajustar `base`/`b` al reproducir. Las rutas del notebook usan `/content/buckets/...`; en nuestra VM se ejecuto con `/home/ds/buckets/...`.
+4. 
+Informe completo con hipótesis, resultados y limitaciones: [INFORME.md](INFORME.md). Tablas de números: [RESULTADOS.md](RESULTADOS.md).
