@@ -11,6 +11,13 @@ Partí del workflow de predicción final (`z739_final_senior.ipynb`) y le apliqu
 4. Cortes de envío de 9000 a 12500; sin envío automático a Kaggle.
 El resto del pipeline quedó idéntico al original.
 
+## 2b. Recomendaciones de los grupos A y B: qué tomé y qué no
+Leí el documento de recomendaciones de los grupos A y B y decidí qué método implementar en cada etapa del workflow:
+- **Tomé el semillerío con promedio de probabilidades.** El Grupo A observó que el ensamble satura entre 5 y 10 corridas; usé 16 más una réplica independiente (28 modelos en total) para reducir aún más la variabilidad.
+- **Tomé la ponderación temporal y los hiperparámetros del experimento 9504**, los que mejor resultado dieron en los experimentos del grupo.
+- **No tomé el feature engineering histórico/evolutivo.** Los grupos A y B no encontraron mejora, y en mis propias pruebas (variables históricas y de conteo) el resultado fue peor (ver sección 3).
+- **No tomé la eliminación de canaritos.** El Grupo A reporta una mejora de +4,6 M en su backtest, pero en este workflow implica un entrenamiento 3 a 4 veces más lento, inviable en el tiempo disponible.
+
 ## 3. Hipótesis y resultados
 **H1. La receta modificada (9900) supera al workflow original (9800).**
 Mismas semillas, corte 10500, Wilcoxon pareado de una cola: 7 de 8 semillas a favor, +16,5 M de media, p = 0,0078. Con 8 semillas nuevas (9 a 16) la ventaja es de +8,9 M (p = 0,052, borde de significancia, con poca potencia). Las 16 semillas contra el original: p = 0,0066. Conclusión: la receta mejora al original; el efecto realista ronda +9 a +13 M por semilla.
